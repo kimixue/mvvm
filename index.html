@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="school.name"> {{school.name}}
+        <div>{{school.name}}</div>
+        <div>{{school.age}}</div>
+        {{getNewName}}
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        <div v-html="message"></div>
+        <button type="button" v-on:click="change">按钮</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                school: {
+                    name: 'vue',
+                    age: 6,
+                    add: '杭州'
+                },
+                message: '<h1>你好</h1>'
+            },
+            computed: { //根据一个值 计算出一个新值
+                getNewName() {
+                    return this.school.name + '架构'
+                }
+            },
+            methods: {
+                change() {
+                    this.school.name = '杭州';
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
